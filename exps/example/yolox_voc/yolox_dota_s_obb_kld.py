@@ -29,7 +29,7 @@ class Exp(MyExp):
 
         # --------------  training config --------------------- #
         self.warmup_epochs = 5
-        self.max_epoch = 50
+        self.max_epoch = 100
         self.warmup_lr = 0
         self.basic_lr_per_img = 0.0025 / 16.0
         self.scheduler = "yoloxwarmcos"
@@ -46,7 +46,7 @@ class Exp(MyExp):
         # -----------------  testing config ------------------ #
         self.test_size = (1024, 1024)
         self.test_conf = 0.01
-        self.nmsthre = 0.3 #default 0.65
+        self.nmsthre = 0.4 #default 0.65
 
     def get_data_loader(self, batch_size, is_distributed, no_aug=False):  #  no_aug=False
         from yolox.data import (

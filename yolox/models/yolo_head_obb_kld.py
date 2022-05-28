@@ -67,13 +67,13 @@ class YOLOXHeadOBB_KLD(nn.Module):
             self.cls_convs.append(
                 nn.Sequential(
                     *[
-                        # Conv(
-                        #     in_channels=int(256 * width),
-                        #     out_channels=int(256 * width),
-                        #     ksize=3,
-                        #     stride=1,
-                        #     act=act,
-                        # ),
+                        Conv(
+                            in_channels=int(256 * width),
+                            out_channels=int(256 * width),
+                            ksize=3,
+                            stride=1,
+                            act=act,
+                        ),
                         # Conv(
                         #     in_channels=int(256 * width),
                         #     out_channels=int(256 * width),
@@ -84,23 +84,24 @@ class YOLOXHeadOBB_KLD(nn.Module):
                         Trans(
                             dim=int(256 * width),
                             kernel_size=3
-                        ),Trans(
-                            dim=int(256 * width),
-                            kernel_size=3
                         ),
+                        # Trans(
+                        #     dim=int(256 * width),
+                        #     kernel_size=3
+                        # ),
                     ]
                 )
             )
             self.reg_convs.append(
                 nn.Sequential(
                     *[
-                        # Conv(
-                        #     in_channels=int(256 * width),
-                        #     out_channels=int(256 * width),
-                        #     ksize=3,
-                        #     stride=1,
-                        #     act=act,
-                        # ),
+                        Conv(
+                            in_channels=int(256 * width),
+                            out_channels=int(256 * width),
+                            ksize=3,
+                            stride=1,
+                            act=act,
+                        ),
                         # Conv(
                         #     in_channels=int(256 * width),
                         #     out_channels=int(256 * width),
@@ -111,10 +112,11 @@ class YOLOXHeadOBB_KLD(nn.Module):
                         Trans(
                             dim=int(256 * width),
                             kernel_size=3
-                        ), Trans(
-                            dim=int(256 * width),
-                            kernel_size=3
                         ),
+                        # Trans(
+                        #     dim=int(256 * width),
+                        #     kernel_size=3
+                        # ),
                     ]
                 )
             )
