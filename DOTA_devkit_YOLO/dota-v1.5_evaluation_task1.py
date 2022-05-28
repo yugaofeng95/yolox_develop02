@@ -266,7 +266,7 @@ def main():
     # imagesetfile = r'/home/test/Persons/hukaixuan/DOTA_devkit-master/evaluation_example/imgnamefile.txt'
 
 
-    detpath = 'E:/YGF/Yolox/YOLOX-OBB-main/YOLOX-OBB-main/result_output/detpath/5-19vari/{:s}.txt'
+    detpath = 'E:/YGF/Yolox/YOLOX-OBB-main/YOLOX-OBB-main/result_output/detpath/transfomer_head5.28/{:s}.txt'
     annopath = 'E:/YGF/Yolox/YOLOX-OBB-main/YOLOX-OBB-main/result_output/annopath/labelTxt/{:s}.txt'
     imagesetfile = 'E:/YGF/Yolox/YOLOX-OBB-main/YOLOX-OBB-main/result_output/imgnamefile/val.txt'
 

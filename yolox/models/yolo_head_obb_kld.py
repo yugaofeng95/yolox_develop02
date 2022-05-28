@@ -17,6 +17,9 @@ from .network_blocks import BaseConv, DWConv
 
 from .VariFocalLoss import VarifocalLoss
 
+#transformer
+from .TransLayer import CoTNetLayer
+
 
 
 
@@ -49,6 +52,7 @@ class YOLOXHeadOBB_KLD(nn.Module):
         self.angle_preds = nn.ModuleList()
         self.stems = nn.ModuleList()
         Conv = DWConv if depthwise else BaseConv
+        Trans = CoTNetLayer
 
         for i in range(len(in_channels)):
             self.stems.append(
@@ -63,19 +67,26 @@ class YOLOXHeadOBB_KLD(nn.Module):
             self.cls_convs.append(
                 nn.Sequential(
                     *[
-                        Conv(
-                            in_channels=int(256 * width),
-                            out_channels=int(256 * width),
-                            ksize=3,
-                            stride=1,
-                            act=act,
-                        ),
-                        Conv(
-                            in_channels=int(256 * width),
-                            out_channels=int(256 * width),
-                            ksize=3,
-                            stride=1,
-                            act=act,
+                        # Conv(
+                        #     in_channels=int(256 * width),
+                        #     out_channels=int(256 * width),
+                        #     ksize=3,
+                        #     stride=1,
+                        #     act=act,
+                        # ),
+                        # Conv(
+                        #     in_channels=int(256 * width),
+                        #     out_channels=int(256 * width),
+                        #     ksize=3,
+                        #     stride=1,
+                        #     act=act,
+                        # ),
+                        Trans(
+                            dim=int(256 * width),
+                            kernel_size=3
+                        ),Trans(
+                            dim=int(256 * width),
+                            kernel_size=3
                         ),
                     ]
                 )
@@ -83,19 +94,26 @@ class YOLOXHeadOBB_KLD(nn.Module):
             self.reg_convs.append(
                 nn.Sequential(
                     *[
-                        Conv(
-                            in_channels=int(256 * width),
-                            out_channels=int(256 * width),
-                            ksize=3,
-                            stride=1,
-                            act=act,
-                        ),
-                        Conv(
-                            in_channels=int(256 * width),
-                            out_channels=int(256 * width),
-                            ksize=3,
-                            stride=1,
-                            act=act,
+                        # Conv(
+                        #     in_channels=int(256 * width),
+                        #     out_channels=int(256 * width),
+                        #     ksize=3,
+                        #     stride=1,
+                        #     act=act,
+                        # ),
+                        # Conv(
+                        #     in_channels=int(256 * width),
+                        #     out_channels=int(256 * width),
+                        #     ksize=3,
+                        #     stride=1,
+                        #     act=act,
+                        # ),
+                        Trans(
+                            dim=int(256 * width),
+                            kernel_size=3
+                        ), Trans(
+                            dim=int(256 * width),
+                            kernel_size=3
                         ),
                     ]
                 )
